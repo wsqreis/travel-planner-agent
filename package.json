@@ -1,0 +1,28 @@
+{
+  "name": "travel-planner-agent",
+  "version": "0.1.0",
+  "description": "Travel planning assistant with long-term memory: learns your travel preferences, lets you inspect and erase them, and keeps conversations within a context budget",
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning --env-file=.env src/cli.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "node --disable-warning=ExperimentalWarning --test tests/*.test.ts",
+    "eval": "node --disable-warning=ExperimentalWarning --env-file=.env eval/run.ts"
+  },
+  "author": "wsqreis",
+  "license": "MIT",
+  "dependencies": {
+    "@langchain/core": "^1.2.17",
+    "@langchain/langgraph": "^1.5.0",
+    "@langchain/openai": "^1.6.2",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "typescript": "^7.0.2"
+  },
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=22.18"
+  }
+}
