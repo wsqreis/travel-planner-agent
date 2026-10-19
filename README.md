@@ -66,7 +66,7 @@ The traveller can also ask in plain language ("forget my budget") to remove a si
 
 ## Evaluation
 
-Memory that saves the wrong things is worse than no memory. `npm run eval` runs 21 cases against a real model and checks the profile changes decided for each message:
+Memory that saves the wrong things is worse than no memory. `npm run eval` runs 24 cases against a real model and checks the profile changes decided for each message:
 
 - **Recall**: stated facts get saved (name, home base, dietary needs, places visited...).
 - **Precision**: nothing else gets saved. Questions, thanks, one-off trip details and the assistant's own suggestions must leave the profile alone.
@@ -75,6 +75,7 @@ Memory that saves the wrong things is worse than no memory. `npm run eval` runs 
 ```bash
 npm run eval                                                    # the configured model chain
 npm run eval -- --models nvidia/nemotron-3-super-120b-a12b:free,google/gemma-4-31b-it:free   # each model on its own
+npm run eval -- --only explores-suggestion,adopts-suggestion    # a subset of cases
 ```
 
 A case passes only when every expected change happened and nothing unexpected did. Results are saved to `eval/results/`.
