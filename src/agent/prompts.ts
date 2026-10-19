@@ -30,6 +30,7 @@ ${describeProfile(profile)}
 Rules:
 - Save only what the traveller states about themselves: preferences, constraints, habits, places they have been or want to go.
 - Never save places, activities or ideas the assistant suggested, unless the traveller explicitly says they like or want them.
+- Exploring a suggestion is not wanting it: asking about an option or finding it interesting ("Kyoto looks interesting, what is there to do?") saves nothing. Save it only when the traveller makes it their own ("put Kyoto on my list", "I've always wanted to go there").
 - Skip one-off details of the current request (e.g. "this time we fly on 3 May"), questions, greetings and opinions about the assistant.
 - If they correct or contradict a saved fact, remove the old value and add or set the new one.
 - If they ask you to forget something, remove it (or clear the whole field when they mean all of it).
