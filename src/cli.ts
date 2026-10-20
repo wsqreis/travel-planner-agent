@@ -33,6 +33,8 @@ let threadId = randomUUID();
 
 const formatUpdate = ({ op, field, value }: MemoryUpdate) =>
   ({ add: `+ ${field}: ${value}`, set: `${field} = ${value}`, remove: `- ${field}: ${value}`, clear: `cleared ${field}` })[op];
+// Models often answer with **bold**; a terminal can show that as real bold instead of asterisks.
+const terminalBold = (text: string) => text.replace(/\*\*(.+?)\*\*/g, (_, inner: string) => styleText('bold', inner));
 
 const rl = createInterface({ input: stdin, output: stdout });
 console.log(styleText('bold', `Wayfarer, your travel planner`) + styleText('dim', `  (user: ${userId})`));
@@ -78,7 +80,7 @@ while (true) {
       { configurable: { thread_id: threadId } },
     );
     const reply = state.messages.at(-1)?.content;
-    console.log(`\n${styleText('green', 'wayfarer ›')} ${typeof reply === 'string' ? reply : ''}\n`);
+    console.log(`\n${styleText('green', 'wayfarer ›')} ${typeof reply === 'string' ? terminalBold(reply) : ''}\n`);
     for (const update of state.remembered) console.log(styleText('dim', `  [memory] ${formatUpdate(update)}`));
     if (state.remembered.length) console.log();
   } catch (error) {
